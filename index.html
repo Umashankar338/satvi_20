@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satvi-20</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="birthday-message">Happy Birthday Satvi 🎂</h1>
+        <div id="balloon-countdown">Tap the Balloons : 7 </div>
+        <div id="final-message" style="display: none;">
+            🎉 🎉 🎉 🎉 🎉 🎉 🎉 🎉 🎉 🎉 🎉 🎉 🎉 🎉 🎉 🎉 🎉 🎉 🎉 🎉 🎉 🎉
+        </div>
+    </div>
+
+    <div class="balloons">
+        <div class="balloon balloon1">S</div>
+        <div class="balloon balloon2">A</div>
+        <div class="balloon balloon3">T</div>
+        <div class="balloon balloon4">V</div>
+        <div class="balloon balloon5">I</div>
+        <div class="balloon balloon6">K</div>
+        <div class="balloon balloon7">A</div>
+    </div>
+
+    <div class="card-container">
+        <div class="card">
+            <div class="card-front">
+                <img src="IMG_1276.JPG" alt="Front Image">
+            </div>
+            <div class="card-back">
+                <div class="card-back-content">
+                    <h1>Wishes from Smart:</h1>
+                    <p></p>Wishing you the happiest 20th birthday, Satvika! 🎉✨ I’m so lucky to have you as a friend. You bring so much laughter and positivity into my life. I hope this milestone birthday brings you endless joy and unforgettable moments. May the year ahead be filled with new adventures, dreams coming true, and all the happiness you deserve. Keep shining and making the world brighter with your amazing energy! Here's to many more wonderful memories! 🥳🎂🎁
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="pop-sound" src="bubble-sound-43207.mp3"></audio>
+    <audio id="cheer-sound" src="a-birthday-to-remember-201324.mp3"></audio>
+
+    <div id="confetti"></div>
+    <div id="fireworks" style="display:none;"></div>
+    
+
+    <input type="text" id="wish-input" placeholder="Enter your birthday wish here!">
+    <button onclick="addWish()">Send</button>
+    <div id="wish-list"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

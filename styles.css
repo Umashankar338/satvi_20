@@ -1,0 +1,267 @@
+/* Main Variables */
+:root {
+    --main-bg-color: rgb(12, 10, 10);
+    --gradient-start: #000000;
+    --balloon-color-1: #af492a;
+    --balloon-color-2: #22b59f;
+    --balloon-color-3: #bebc43;
+    --balloon-color-4: #6a1b9a;
+    --balloon-color-5: #1e88e5;
+    --balloon-color-6: #356791;
+    --balloon-color-7: #791d31;
+    --text-color: hsl(228, 61%, 32%);
+    --card-bg-color: #000000;
+    --card-back-bg: rgba(0, 0, 0, 0.5);
+    --confetti-color: #f5c242;
+    --fireworks-bg: url('fireworks.gif');
+}
+
+/* Main Styling */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--main-bg-color) 100%);
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.birthday-message {
+    font-family: 'Great Vibes', cursive;
+    font-size: 6rem;
+    color: var(--text-color);
+    margin-bottom: 0;
+    animation: fadeIn 2s ease-in-out;
+}
+
+#balloon-countdown {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+/* Balloons */
+.balloons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.balloon {
+    width: 100px;
+    height: 150px;
+    background-color: var(--balloon-color-1);
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    animation: float 6s ease-in-out infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+.balloon:active {
+    transform: scale(0.9); /* Pop effect */
+    animation: none;
+}
+
+/* Balloon Tail */
+.balloon::before,
+.balloon::after {
+    content: '';
+    position: absolute;
+    background-color: #181717;
+}
+
+.balloon::before {
+    width: 30px;
+    height: 20px;
+    border-radius: 20px;
+    top: 130px;
+    left: 35px;
+}
+
+.balloon::after {
+    width: 2px;
+    height: 20px;
+    background-color: #333333;
+    top: 150px;
+    left: 49px;
+}
+
+/* Balloon Color Variants */
+.balloon1 { background-color: var(--balloon-color-1); animation-delay: 0s; }
+.balloon2 { background-color: var(--balloon-color-2); animation-delay: 0.5s; }
+.balloon3 { background-color: var(--balloon-color-3); animation-delay: 1s; }
+.balloon4 { background-color: var(--balloon-color-4); animation-delay: 1.5s; }
+.balloon5 { background-color: var(--balloon-color-5); animation-delay: 2s; }
+.balloon6 { background-color: var(--balloon-color-6); animation-delay: 2s; }
+.balloon7 { background-color: var(--balloon-color-7); animation-delay: 2s; }
+
+/* Floating Effect */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+    100% { transform: translateY(0); }
+}
+
+/* Card Flip */
+.card-container {
+    perspective: 1000px;
+    margin-bottom: 50px;
+}
+
+.card {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+}
+
+.card-container:hover .card {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-back {
+    background-color: var(--card-bg-color);
+    transform: rotateY(180deg);
+}
+
+.card-back-content {
+    background-color: var(--card-back-bg);
+    padding: 20px;
+    border-radius: 10px;
+    color: #ffffff;
+    text-align: left;
+}
+
+.card-back-content h1 {
+    font-size: 2rem;
+    color: var(--confetti-color);
+    margin-bottom: 20px;
+}
+
+.card-back-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Confetti Animation */
+#confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+}
+
+@keyframes confetti-fall {
+    0% { transform: translateY(-100vh); }
+    100% { transform: translateY(100vh); }
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--confetti-color);
+    top: -10px;
+    animation: confetti-fall 5s linear infinite, rotate 3s linear infinite;
+}
+
+#fireworks {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: var(--fireworks-bg) no-repeat center;
+    background-size: cover;
+    z-index: 200;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .birthday-message {
+        font-size: 1.5rem;
+    }
+
+    .card {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* iPhone 13 Frame */
+@media only screen and (max-width: 390px) and (min-width: 600px) {
+    body {
+        font-size: 14px; /* Adjusted font size for iPhone 13 */
+        width: 200%;
+        height: 100%;
+        margin: 0;
+    }
+
+    .birthday-message {
+        font-size: 3.5rem; /* Smaller size for the iPhone screen */
+    }
+
+    .balloon {
+        width: 80px; /* Adjusted balloon size */
+        height: 120px;
+        font-size: 1.5rem; /* Smaller text size for balloons */
+    }
+
+    .card {
+        width: 90%; /* Full width card with some margin */
+        height: auto; /* Auto height for responsiveness */
+    }
+
+    #balloon-countdown {
+        font-size: 1.2rem; /* Smaller countdown font */
+    }
+    
+    .confetti-piece {
+        width: 8px; /* Smaller confetti pieces */
+        height: 8px;
+    }
+}
